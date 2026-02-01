@@ -150,7 +150,10 @@ pubspec.lock
 .DS_Store
 Thumbs.db
 
-# Dist folders (keep source, exclude large binaries)
-desktop-app/dist/
-android-app/dist/
+# Flutter build folder (large, can rebuild)
 android-app/build/
+
+# NOTE: dist folders are NOT ignored - they contain release binaries for users to download
+# desktop-app/dist/ - contains bin-day-brain.exe
+# android-app/dist/ - contains BinDayBrain.apk
+# web-app/dist/ - contains deployable web files
