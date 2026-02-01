@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wollongong Smart Bin Reminders - Never miss bin day again!">
+    <meta name="theme-color" content="#1976d2">
+    <title>Bin Day Brain - Wollongong Smart Bin Reminders</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+    <div id="app">
+        <!-- Setup Screen -->
+        <div id="setup-screen" class="screen">
+            <div class="setup-container">
+                <h1>Welcome to Bin Day Brain!</h1>
+                <p class="subtitle">Let's find your address for smart bin reminders</p>
+
+                <div class="form-group">
+                    <label for="locality-input">Suburb/Locality:</label>
+                    <input type="text" id="locality-input" placeholder="Type to search suburbs..." autocomplete="off">
+                    <div id="locality-dropdown" class="dropdown"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="street-input">Street:</label>
+                    <input type="text" id="street-input" placeholder="Select suburb first..." disabled autocomplete="off">
+                    <div id="street-dropdown" class="dropdown"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="property-input">Property Number:</label>
+                    <input type="text" id="property-input" placeholder="Select street first..." disabled autocomplete="off">
+                    <div id="property-dropdown" class="dropdown"></div>
+                </div>
+
+                <p id="setup-status" class="status"></p>
+
+                <button id="complete-setup-btn" class="btn btn-primary" disabled>Complete Setup</button>
+            </div>
+            <footer>
+                <p>&copy; 2026 Scott Leimroth</p>
+            </footer>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboard-screen" class="screen hidden">
+            <header>
+                <h1>Bin Day Brain</h1>
+                <p class="subtitle">Wollongong Smart Bin Reminders</p>
+            </header>
+
+            <div id="alerts-container"></div>
+
+            <div class="cards-container">
+                <div class="bin-card fogo" id="fogo-card">
+                    <h2>FOGO</h2>
+                    <div class="days-count">--</div>
+                    <div class="days-label">days until collection</div>
+                    <div class="collection-date"></div>
+                </div>
+
+                <div class="bin-card recycling" id="recycling-card">
+                    <h2>Recycling</h2>
+                    <div class="days-count">--</div>
+                    <div class="days-label">days until collection</div>
+                    <div class="collection-date"></div>
+                </div>
+
+                <div class="bin-card landfill" id="landfill-card">
+                    <h2>Landfill</h2>
+                    <div class="days-count">--</div>
+                    <div class="days-label">days until collection</div>
+                    <div class="collection-date"></div>
+                </div>
+            </div>
+
+            <p id="status-label" class="status"></p>
+
+            <div class="toolbar">
+                <button id="change-address-btn" class="btn btn-secondary">Change Address</button>
+                <button id="which-bin-btn" class="btn btn-purple">Which Bin?</button>
+                <button id="refresh-btn" class="btn btn-primary">Refresh</button>
+            </div>
+
+            <footer>
+                <p>&copy; 2026 Scott Leimroth</p>
+            </footer>
+        </div>
+
+        <!-- Which Bin Modal -->
+        <div id="which-bin-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Which Bin Does It Go In?</h2>
+                    <button id="close-modal-btn" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="search-input" placeholder="Search for an item (e.g. batteries, plastic bags...)">
+                    <p id="search-results-count" class="results-count"></p>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

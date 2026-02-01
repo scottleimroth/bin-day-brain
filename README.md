@@ -1,72 +1,78 @@
-# FOGI App - Wollongong Bin Collection Tracker
+# Bin Day Brain - Wollongong Smart Bin Reminders
 
-A simple, offline-first desktop utility for tracking Wollongong bin collection days.
+Never miss bin day again! **Free and open source** - built for Illawarra/Wollongong residents.
+
+## Available Platforms
+
+| Platform | Location | Ready to Run |
+|----------|----------|--------------|
+| Windows Desktop | `desktop-app/dist/bin-day-brain.exe` | Yes |
+| Web App | `web-app/dist/` | Yes (host on any web server) |
+| Android | `android-app/dist/bin-day-brain.apk` | Yes |
 
 ## Features
 
-- Simple setup wizard to find your address
-- Color-coded dashboard showing days until next collection:
+- **Smart Setup Wizard** - Find your address from the Wollongong Waste API
+- **Color-coded Dashboard** showing days until next collection:
   - Green (FOGO - Food Organics Garden Organics)
   - Yellow (Recycling)
   - Red (Landfill)
-- Offline-first design - caches collection data locally
-- Modern, flat GUI using CustomTkinter
+- **Weather-Smart Alerts**:
+  - Wind warnings when bins might blow over (40+ km/h)
+  - Rain advisory for collection day
+- **Which Bin? Search** - A-Z guide showing correct bin for each item
+- **Event Alerts** - Upcoming special events (e-waste, chemical collection, etc.)
+- **Offline Support** - Caches collection data locally
 
-## Installation
+## Project Structure
 
-1. Download the latest `fogi-app.exe` from Releases
-2. Run the executable - no installation needed!
-
-## Development Setup
-
-### Requirements
-
-- Python 3.8+
-- pip
-
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
+```
+bin-day-brain/
+├── desktop-app/           # Windows Desktop (Python + CustomTkinter)
+│   ├── main.py
+│   ├── requirements.txt
+│   └── dist/
+│       └── bin-day-brain.exe
+│
+├── web-app/               # Web App (HTML/CSS/JS - PWA)
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   └── dist/              # Ready to deploy
+│
+├── android-app/           # Android App (Flutter)
+│   ├── lib/main.dart
+│   ├── pubspec.yaml
+│   └── dist/
+│       └── bin-day-brain.apk
+│
+└── README.md
 ```
 
-### Run from Source
+## Quick Start
 
-```bash
-python main.py
-```
+### Windows Desktop
+Just run `desktop-app/dist/bin-day-brain.exe`
 
-### Build Executable
+### Web App
+1. Upload `web-app/dist/` contents to any web server
+2. Or host on GitHub Pages
+3. Open in browser
 
-To create a standalone `.exe` file:
+### Android
+1. Copy `android-app/dist/bin-day-brain.apk` to your phone
+2. Enable "Install from unknown sources"
+3. Install the APK
 
-```bash
-python build_exe.py
-```
+## Development
 
-Or manually:
+See README in each app folder for development instructions.
 
-```bash
-pyinstaller --onefile --windowed --icon=app_icon.ico main.py
-```
+## APIs Used
 
-The executable will be created in the `dist/` folder.
-
-## How It Works
-
-The app uses the Wollongong Waste Info API:
-- On first launch, a wizard helps you find your property
-- Collection dates are fetched and cached locally
-- The app works offline using the cached data
-- Click "Refresh" to update collection dates when online
-
-## Tech Stack
-
-- Python 3
-- CustomTkinter (Modern GUI)
-- requests (API calls)
-- json (Local data persistence)
+- **Wollongong Waste API** - Collection schedules, materials guide, events
+- **Open-Meteo** - Free weather forecasts (no API key required)
 
 ## License
 
-Private - All Rights Reserved
+© 2026 Scott Leimroth. All Rights Reserved.
