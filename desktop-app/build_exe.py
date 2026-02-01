@@ -10,29 +10,42 @@ def build():
     """Build the executable using PyInstaller"""
     
     print("=" * 60)
-    print("FOGI App - Building Executable")
+    print("Bin Day Brain - Building Executable")
     print("=" * 60)
     print()
     
     # Check if icon exists
     icon_arg = ""
+    data_arg = ""
+
+    # Check for ICO icon (for Windows executable icon)
     if os.path.exists("app_icon.ico"):
         icon_arg = "--icon=app_icon.ico"
-        print("✓ Found app icon")
+        print("[OK] Found app icon (ICO)")
+    elif os.path.exists("bin-day-brain-icon.png"):
+        print("! Found PNG icon but no ICO icon - executable will use default Windows icon")
     else:
-        print("! No app icon found (app_icon.ico) - building without icon")
-    
+        print("! No app icon found - building without icon")
+
+    # Check for PNG icon (for window taskbar icon)
+    if os.path.exists("bin-day-brain-icon.png"):
+        data_arg = "--add-data=bin-day-brain-icon.png;."
+        print("[OK] Found window icon (PNG) - will be included")
+
     # Build command
     cmd = [
         "pyinstaller",
         "--onefile",
         "--windowed",
-        "--name=fogi-app",
+        "--name=bin-day-brain",
     ]
-    
+
     if icon_arg:
         cmd.append(icon_arg)
-    
+
+    if data_arg:
+        cmd.append(data_arg)
+
     cmd.append("main.py")
     
     print()
@@ -46,11 +59,11 @@ def build():
         
         print()
         print("=" * 60)
-        print("✓ Build successful!")
+        print("[OK] Build successful!")
         print("=" * 60)
         print()
         print("The executable can be found at:")
-        print("  dist/fogi-app.exe")
+        print("  dist/bin-day-brain.exe")
         print()
         print("You can distribute this single file - no installation needed!")
         print()
@@ -58,7 +71,7 @@ def build():
     except subprocess.CalledProcessError as e:
         print()
         print("=" * 60)
-        print("✗ Build failed!")
+        print("[FAIL] Build failed!")
         print("=" * 60)
         print()
         print(f"Error: {e}")
@@ -71,7 +84,7 @@ def build():
     except FileNotFoundError:
         print()
         print("=" * 60)
-        print("✗ PyInstaller not found!")
+        print("[FAIL] PyInstaller not found!")
         print("=" * 60)
         print()
         print("Please install PyInstaller:")
