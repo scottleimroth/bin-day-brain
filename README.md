@@ -2,12 +2,20 @@
 
 Never miss bin day again! **Free and open source** - built for Illawarra/Wollongong residents.
 
+## 🌐 Try It Live
+
+**[Launch Web App →](https://bin-day-brain.pages.dev/)**
+
+No installation required - works on any device with a browser.
+
+---
+
 ## Available Platforms
 
 | Platform | Location | Ready to Run |
 |----------|----------|--------------|
 | Windows Desktop | `desktop-app/dist/bin-day-brain.exe` | Yes |
-| Web App | `web-app/dist/` | Yes (host on any web server) |
+| Web App | [Live Demo](https://bin-day-brain.pages.dev/) \| `web-app/dist/` | Yes (live or self-hosted) |
 | Android | `android-app/dist/bin-day-brain.apk` | Yes |
 
 ## Features
