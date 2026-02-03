@@ -153,7 +153,11 @@ Thumbs.db
 # Flutter build folder (large, can rebuild)
 android-app/build/
 
-# NOTE: dist folders are NOT ignored - they contain release binaries for users to download
-# desktop-app/dist/ - contains bin-day-brain.exe
-# android-app/dist/ - contains BinDayBrain.apk
+# Binaries - distributed via GitHub Releases, not committed to repo
+*.apk
+*.exe
+*.ipa
+*.jar
+
+# Web app dist is still tracked (small HTML/CSS/JS files, not binaries)
 # web-app/dist/ - contains deployable web files
