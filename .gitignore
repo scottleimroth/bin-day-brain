@@ -170,3 +170,8 @@ android-app/build/
 
 # Web app dist is still tracked (small HTML/CSS/JS files, not binaries)
 # web-app/dist/ - contains deployable web files
+
+# Security baseline
+*.db
+*.sqlite
+*.sqlite3
