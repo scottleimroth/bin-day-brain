@@ -78,3 +78,7 @@ See README in each app folder for development instructions.
 ## License
 
 © 2026 Scott Leimroth. All Rights Reserved.
+
+## Copyright
+
+Copyright (c) 2026 Scott Leimroth. All rights reserved.
