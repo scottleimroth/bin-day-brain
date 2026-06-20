@@ -1,3 +1,4 @@
+// Scott Leimroth copyright 2026
 // Bin Day Brain - Web App
 // © 2026 Scott Leimroth
 
